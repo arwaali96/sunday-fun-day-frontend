@@ -5,13 +5,13 @@ import * as api from '../api';
 // When using redux thunk, dispatch action instead of return
 // data is from fetched response (destructured)
 
-export const getPosts = () => async(dispatch) => {
+export const getPosts = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
 
         dispatch({ type: 'FETCH_ALL', payload: data });
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
     }
 }
 
@@ -22,7 +22,7 @@ export const createPost = (post) => async (dispatch) => {
         dispatch({ type: 'CREATE', payload: data });
     } catch (error) {
         console.log(error);
-        
+
     }
 }
 
@@ -32,6 +32,17 @@ export const updatePost = (id, post) => async (dispatch) => {
 
         dispatch({ type: 'UPDATE', payload: data });
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
     }
+}
+
+export const deletePost = (id) => async (dispatch) => {
+    try {
+        await api.deletePost(id);
+
+        dispatch({ type: 'DELETE', payload: id });
+    } catch (error) {
+        console.log(error);
+    }
+
 }
