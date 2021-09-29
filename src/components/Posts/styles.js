@@ -11,4 +11,13 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  quoteWrapper: {
+    background: 'beige',
+    padding: '50px',
+  },
+  quote: {
+    // color: 'rgba(163,9,22, 1)',
+    color: 'black',
+    fontFamily: 'Marker Felt',
+  },
 }));
